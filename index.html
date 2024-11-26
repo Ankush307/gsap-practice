@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP practice</title>
+
+    <style>
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #f4f4f4;
+            border-bottom: 4px solid #000;
+        }
+        .box-1{
+            background-color: gray;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+    </section>
+    <section class="box-1">
+        <div class="box"></div>
+    </section>
+    <section>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".box", {
+            scrollTrigger: {
+                trigger: ".box-1",
+                pin: true,
+                start: "top 30%",
+                end: "bottom 70%",
+                scrub: 1,
+                markers: true
+            },
+            ease: "bounce,out",
+            stagger: 3,
+            x: 1500,
+            rotation: 360,
+            duration: 3,
+            repeat: 3,
+            yoyo: true
+        });
+    </script>
+
+</body>
+
+</html>
